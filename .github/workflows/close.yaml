@@ -2,7 +2,7 @@ name: 'Issue Comment Close Workflows'
 
 on:
     issues:
-        types: [ closed ]
+        types: [ labeled ]
 
 jobs:
     comment-job:
