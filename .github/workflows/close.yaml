@@ -1,12 +1,12 @@
-name: 'Issue Comment Close Workflows'
+name: 'Issue Close Workflows'
 
 on:
     issue_comment:
         types: [ created ]
 
 jobs:
-    comment-job:
-        name: 'Comment Job'
+    issue-close0-job:
+        name: 'Issue-Close0-Job'
         if: contains(github.event.comment.body, '/close')
         runs-on: ubuntu-latest
 
