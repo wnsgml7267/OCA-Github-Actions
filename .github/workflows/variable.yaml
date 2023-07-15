@@ -1,3 +1,4 @@
+# 환경변수 가져오기
 name: 'SWM GitHub Actions Basic'
 
 on: push

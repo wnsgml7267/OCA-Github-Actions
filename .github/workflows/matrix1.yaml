@@ -1,0 +1,20 @@
+name: 'SWM GitHub Actions Basic'
+
+on: push
+
+jobs:
+  first-job:
+    name: 'First Job'
+
+    strategy:
+      matrix:
+        # 3번 실행된다. 모든 OS에 상관없이 동작해야 할 때 사용한다.
+        os: [ 'windows-latest', 'macos-latest', 'ubuntu-latest' ]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Say Hello World on ${{ matrix.os }}
+      shell: bash
+      run: |
+        echo "Hello World on ${{ matrix.os }}"
