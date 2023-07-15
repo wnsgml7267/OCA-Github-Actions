@@ -1,0 +1,19 @@
+name: 'Github Actions 테스트'
+
+on: push
+
+jobs:
+    first-job:
+        name: 'AzFunc Github Actions Test'
+        
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Say Hello World 1
+          shell: bash
+          run: |
+            echo "hello world from step 1"
+        - name: Say Hello World 1
+          shell: bash
+          run: |
+            echo "hello world from step 1"
