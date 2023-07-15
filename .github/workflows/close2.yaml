@@ -7,7 +7,7 @@ on:
 jobs:
     comment-job:
         name: 'Comment Job'
-        if: github.event_name.issue_comment == 'close'
+        if: github.event.issue.comments.body == 'close'
         runs-on: ubuntu-latest
 
         steps:
