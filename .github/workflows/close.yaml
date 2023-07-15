@@ -7,13 +7,9 @@ on:
 jobs:
     comment-job:
         name: 'Comment Job'
-        if: github.event.issue.comments == '/close'
+        if: github.event_name.issues.comment == 'close'
         runs-on: ubuntu-latest
 
         steps:
         - name: Closed Issue
           uses: peter-evans/close-issue@v3
-          
-          with:
-            issue-number: 1
-            comment: Auto-closing issue
