@@ -1,23 +1,14 @@
-name: 'Issue Comment Close Workflows'
-
 on:
     issues:
-        types: [ closed ]
-
+      types: [opened]
 jobs:
-    comment-job:
-        name: 'Comment Job'
-        if: github.event.issue.comments == '/close'
-        runs-on: ubuntu-latest
-
-        steps:
-        - name: Closed Issue
-          uses: actions/github-script@v6
-          
+    titlePrefixCheck:
+      runs-on: ubuntu-latest
+      steps:
+        - if: startsWith(github.event.issue.comments, '/close') == 'true'
+          name: Close Issue
+          uses: peter-evans/close-issue@v3
           with:
-            script: |
-                github.event.issues.closed_at({
-                    issue_number: context.issue.number,
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                })
+            comment: |
+              Issue title must start with 'ABC-'.
+              Auto-closing this issue.
