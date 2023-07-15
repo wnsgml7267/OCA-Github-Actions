@@ -12,7 +12,7 @@ jobs:
 
         steps:
         - name: Closed Issue
-          uses: peter-evans/close-issue@v3
+          uses: actions/github-script@v6
           
           with:
             script: |
