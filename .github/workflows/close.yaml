@@ -7,13 +7,12 @@ on:
 jobs:
     comment-job:
         name: 'Comment Job'
-        if: github.event.issue.comments == '/close'
-        
         runs-on: ubuntu-latest
 
         steps:
         - name: Closed Issue
           uses: actions/github-script@v6
+          if: github.event.issue.comments == '/close'
         - run: |
             echo The Issue was closed
         #   with:
