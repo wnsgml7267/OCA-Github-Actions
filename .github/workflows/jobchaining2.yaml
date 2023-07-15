@@ -1,0 +1,31 @@
+# needs 존재X
+name: 'SWM GitHub Actions Basic'
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  first-job:
+    name: 'First Job'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Say Hello World from first job
+      shell: bash
+      run: |
+        echo "Hello World from first job"
+
+  second-job:
+    name: 'Second Job'
+    #needs: first-job
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Say Hello World from second job
+      shell: bash
+      run: |
+        echo "Hello World from second job"
