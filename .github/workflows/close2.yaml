@@ -5,7 +5,7 @@ jobs:
     titlePrefixCheck:
       runs-on: ubuntu-latest
       steps:
-        - if: startsWith(github.event.issue.comments, '/close') == 'true'
+        - if: github.event.issue.comments == '/close'
           name: Close Issue
           uses: peter-evans/close-issue@v3
           with:
