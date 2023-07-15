@@ -8,6 +8,7 @@ jobs:
     comment-job:
         name: 'Comment Job'
         if: github.event.issue.comments == '/close'
+        
         runs-on: ubuntu-latest
 
         steps:
@@ -15,5 +16,8 @@ jobs:
           uses: actions/github-script@v6
           with:
             script: |
-                github.rest.issues.closed
+                github.event.issues.closed({
+                    issue_number: context.issue.number,
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
                 })
