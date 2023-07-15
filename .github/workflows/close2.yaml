@@ -7,7 +7,7 @@ on:
 jobs:
     comment-job:
         name: 'Comment Job'
-        if: startsWith(github.event.issue.comments, 'close') == 'true'
+        if: startsWith(github.event.issue.comments, 'close') == 'True'
         runs-on: ubuntu-latest
 
         steps:
