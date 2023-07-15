@@ -1,0 +1,15 @@
+name: 'Issue Comment Close Workflows'
+
+on:
+    issue_comment:
+        types: [ created ]
+
+jobs:
+    comment-job:
+        name: 'Comment Job'
+        if: github.event.issue.comments == '/close'
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Closed Issue
+          uses: peter-evans/close-issue@v3

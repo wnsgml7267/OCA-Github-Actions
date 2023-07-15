@@ -12,12 +12,8 @@ jobs:
 
         steps:
         - name: Closed Issue
-          uses: actions/github-script@v6
+          uses: peter-evans/close-issue@v3
           
           with:
-            script: |
-                github.event.issues.closed_at({
-                    issue_number: context.issue.number,
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                })
+            issue-number: 1
+            comment: Auto-closing issue
